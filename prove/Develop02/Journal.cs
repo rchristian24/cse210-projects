@@ -19,11 +19,8 @@ public class Journal
     "Prompt: What is my favorite memory?",
     "Prompt: What makes me laugh?"
     };
-
-
     public int _counter = 0;
     public Random random = new Random();
-
     public List<Entry> _entryList = new List<Entry>();
     public List<UserEntry> _userEntryList = new List<UserEntry>();
     public void Shuffle()
@@ -41,12 +38,10 @@ public class Journal
     }
     public void GeneratePrompt()
     {
-
         if (_counter > _prompts.Count)
         {
             _counter = 0;
         }
-
         Console.WriteLine($"{_prompts[_counter]}");
         Console.Write(">");
 
@@ -54,10 +49,7 @@ public class Journal
         string date = "1/24/2023";
         AddEntry(_prompts[_counter], date, response);
         _counter++;
-
     }
-
-
     public void AddEntry(string prompt, string date, string response)
     {
         Entry entry = new Entry();
@@ -66,8 +58,7 @@ public class Journal
         entry._response = response;
         _entryList.Add(entry);
     }
-
-    public void Display()
+     public void Display()
     {
         foreach (Entry entry in _entryList)
         {
@@ -76,7 +67,6 @@ public class Journal
     }
     public void Save()
     {
-
         Console.WriteLine("What name would you like to save this file under?");
         Console.Write(">");
         string userFilename = Console.ReadLine();
@@ -84,22 +74,14 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(file))
         {
-
-
             foreach (Entry entry in _entryList)
             {
-
                 outputFile.WriteLine($"{entry._date} - {entry._prompt}");
                 outputFile.WriteLine($"{entry._response}");
                 outputFile.WriteLine(" ");
-
             }
-
         }
-
     }
-
-
     public void Load()
     {
         Console.WriteLine("What file would you like to load?");
@@ -111,7 +93,6 @@ public class Journal
 
         foreach (string line in lines)
         {
-
             string[] parts = line.Split(" - ");
             if (parts.Length == 2)
             {
@@ -129,9 +110,7 @@ public class Journal
             }
         }
     }
-
-    //UserEntries//
-    public void UserPrompt()
+    public void UserPrompt()    //UserEntries//
     {
         Console.WriteLine("What is your prompt you would like to write about?");
         Console.Write(">");
@@ -142,7 +121,6 @@ public class Journal
         string _userDate = "1/24/2023";
         AddUserEntry(_userPrompt, _userDate, _userResponse);
     }
-
     public void AddUserEntry(string userPrompt, string userDate, string userResponse)
     {
         UserEntry userEntry = new UserEntry();
@@ -150,8 +128,6 @@ public class Journal
         userEntry._userPrompt = userPrompt;
         userEntry._userResponse = userResponse;
         _userEntryList.Add(userEntry);
-
-
     }
     public void UserDisplay()
     {
@@ -162,21 +138,17 @@ public class Journal
     }
     public void UserLoad()
     {
-
         Console.WriteLine("What personal prompt file would you like to load?");
         Console.Write(">");
         string filename = Console.ReadLine();
         UserEntry userEntry = new UserEntry();
         string[] lines = System.IO.File.ReadAllLines(filename);
-        
-        
-        foreach (string line in lines)
 
+        foreach (string line in lines)
         {
             string[] parts = line.Split(" - ");
             if (parts.Length == 2)
             {
-
                 string userDate = parts[0];
                 string userPrompt = parts[1];
 
@@ -191,9 +163,7 @@ public class Journal
                 userEntry = new UserEntry();
             }
         }
-
     }
-
     public void UserEntrySave()
     {
         Console.WriteLine("What name would you like to save this personal prompt file under?");
@@ -203,25 +173,17 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(file))
         {
-
-
             foreach (UserEntry userEntry in _userEntryList)
             {
                 outputFile.WriteLine($"{userEntry._userDate} - {userEntry._userPrompt}");
                 outputFile.WriteLine($"{userEntry._userResponse}");
-
             }
         }
     }
-    // Combine computer-generated and user prompts|responses//
-    public void DisplayAll()
+    public void DisplayAll()   // Combine computer-generated and user prompts|responses//
     {
         Display();
         UserDisplay();
     }
-
-
-    
-    
 }
 

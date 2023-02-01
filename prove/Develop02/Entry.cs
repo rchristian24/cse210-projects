@@ -4,8 +4,6 @@ public class Entry
     public string _date;
     public string _response;
     
-
-
     public void DisplayEntry()
     {
         DateTime theCurrentTime = DateTime.Now;
@@ -13,9 +11,5 @@ public class Entry
 
         Console.WriteLine($"Date: {_date}  {_prompt}");
         Console.WriteLine($"{_response}");
-       
-
     }
-   
-    
 }

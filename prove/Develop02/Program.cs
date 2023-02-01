@@ -23,39 +23,27 @@ class Program
             Console.WriteLine("8. Save self-written prompt and response");
             Console.WriteLine(" ");
             Console.WriteLine("9. Display Both");
-            
-
             Console.WriteLine("10. Quit");
             Console.Write("Type in the corresponding number: ");
             Console.Write(">");
             input = Console.ReadLine();
             if (input == "1")
             {
-
                 journal.Shuffle();
                 journal.GeneratePrompt();
-
             }
-
             else if (input == "2")
-            {
-                
-                journal.Display();
-
+            {    
+               journal.Display();
             }
             else if (input == "3")
             {
-                
-                journal.Load();
-                
+                journal.Load();   
             }
-            
             else if (input == "4")
             {
                 journal.Save();
             }
-
-
             else if (input == "5")
             {
                 journal.UserPrompt();
@@ -63,30 +51,19 @@ class Program
             else if (input == "6")
             {
                 journal.UserDisplay();
-
             }
             else if (input == "7")
             {
-                
-                journal.UserLoad();
-                
+                journal.UserLoad();   
             }
             else if (input == "8")
             {
                 journal.UserEntrySave();
             }
-
-
             else if (input == "9")
             {
                 journal.DisplayAll();
             }
-            
-
-
         } while (input != "10");
-
-
     }
-
 }
