@@ -4,8 +4,6 @@ public class UserEntry
     public string _userDate;
     public string _userResponse;
 
-   
-
     public void DisplayUserEntry()
     {
         DateTime theCurrentTime = DateTime.Now;
