@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +50,6 @@ public class Scripture
             wordList.Add(obj);
         }
         return wordList;
-
     }
     public void HideRandomWord()
     {
@@ -62,7 +60,6 @@ public class Scripture
             int index = random.Next(0, _wordList.Count());
             if (!_wordList.ElementAt(index).IsWordHidden())
             {
-
                 _wordList.ElementAt(index).SetHideWord();
                 counter++;
             }
@@ -79,14 +76,17 @@ public class Scripture
         }
         return true;
     }
-    public void Test(){
+    public void Test()
+    {
         Console.WriteLine("Write the scripture (verse only, not reference): ");
         Console.Write(">");
         string test = Console.ReadLine();
-        if(test == _verse ){
+        if (test == _verse)
+        {
             Console.WriteLine("Woohoo! Great job!");
         }
-        else{
+        else
+        {
             Console.WriteLine("Don't give up! Keep trying!");
         }
     }
