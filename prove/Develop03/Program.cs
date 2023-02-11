@@ -25,7 +25,6 @@ class Program
             {
                 scripture.HideRandomWord();
                 scripture.TextDisplay();
-
             }
         }
     }
