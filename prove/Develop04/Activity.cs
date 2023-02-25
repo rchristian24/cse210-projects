@@ -11,8 +11,6 @@ class Activity
     {
         _name = name;
         _description = description;
-
-
     }
     public void GetGreeting()
     {
